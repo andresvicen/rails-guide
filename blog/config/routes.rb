@@ -1,6 +1,8 @@
 Blog::Application.routes.draw do
+  get "users/index"
+  
   devise_for :users
-  # get "welcome/index"
+  
   resources :posts do
     resources :comments
   end
