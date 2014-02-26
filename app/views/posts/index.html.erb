@@ -1,0 +1,12 @@
+<h1>Listing posts</h1>
+
+<%= form_tag('/posts', {:method => :get}) do %>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %>
+  
+  <%= submit_tag 'Filter'%><br/><br/>
+<% end %>
+
+<%= render 'post_list' %>
+
+<%= link_to 'Back', controller: "welcome" %>

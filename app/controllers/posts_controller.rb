@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   
-  # http_basic_authenticate_with name: "andresvicen@yopmail.com", password: "saxosaxo", except: [:index, :show]
   before_filter :authorize_blogger!, :except => [:index, :show, :search]
   
   def new
@@ -8,7 +7,11 @@ class PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.all
+    if params[:title].nil?
+      @posts = Post.all
+    else
+      @posts = Post.search(params[:title])
+    end
   end
  
   def create
@@ -43,14 +46,6 @@ class PostsController < ApplicationController
     @post.destroy
    
     redirect_to posts_path
-  end
-  
-  def search
-    @post = Post.new
-  end
-  
-  def find
-    @post = Post.find(2)
   end
  
 private

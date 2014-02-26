@@ -1,6 +1,5 @@
 Blog::Application.routes.draw do
   get "users/index"
-  get "posts/search"
   
   devise_for :users
   
