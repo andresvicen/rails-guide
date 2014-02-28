@@ -4,9 +4,15 @@
   <%= label_tag :title %>
   <%= text_field_tag :title %>
   
-  <%= submit_tag 'Filter'%><br/><br/>
+  <%= submit_tag 'Filter'%><br/>
+<% end %>
+
+<% if !@title_filter.blank? %>
+  <i> Filtering by title ~ *<b><%= @title_filter %></b>* </i><br/><br/>
+<% else %>
+  <br />
 <% end %>
 
 <%= render 'post_list' %>
 
-<%= link_to 'Back', controller: "welcome" %>
+<%= link_to 'Back', controller: "welcome" %> | <%= link_to 'New post', new_post_path %>

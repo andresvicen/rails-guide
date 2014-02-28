@@ -1,21 +1,26 @@
 class PostsController < ApplicationController
   
-  before_filter :authorize_blogger!, :except => [:index, :show, :search]
+  before_filter :authorize_blogger!
   
   def new
     @post = Post.new
   end
   
   def index
-    if params[:title].nil?
+    title = params[:title]
+    if title.blank?
       @posts = Post.all
+      @title_filter = ''
     else
-      @posts = Post.search(params[:title])
+      @posts = Post.search_by_title(title)
+      @title_filter = title
     end
+    
   end
  
   def create
-    @post = Post.new(params[:post].permit(:title, :text))
+    @post = Post.new(post_params)
+    @post.user = current_user;
     if @post.save
       redirect_to @post
     else
@@ -29,12 +34,15 @@ class PostsController < ApplicationController
   
   def edit
     @post = Post.find(params[:id])
+    if @post.user_id != current_user.id
+      redirect_to @post
+    end
   end
   
   def update
     @post = Post.find(params[:id])
    
-    if @post.update(params[:post].permit(:title, :text))
+    if @post.update(post_params)
       redirect_to @post
     else
       render 'edit'
