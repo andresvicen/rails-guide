@@ -30860,3 +30860,150 @@ Processing by PostsController#show as JSON
   [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
   Rendered posts/show.json.jbuilder (4.8ms)
 Completed 200 OK in 10ms (Views: 7.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-06 17:27:46 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (24.3ms)
+Completed 200 OK in 293ms (Views: 274.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-06 17:27:47 -0300
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-03-06 17:27:49 -0300
+Processing by PostsController#index as HTML
+Redirected to http://localhost:3000/users/sign_in
+Filter chain halted as :authorize_blogger! rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2014-03-06 17:27:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (138.0ms)
+Completed 200 OK in 199ms (Views: 173.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-03-06 17:27:56 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cX3R1qM6u+OqqNGNaFOsnCjRPDakiX8MIjeKF1keaxQ=", "user"=>{"email"=>"andresvicen@yopmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'andresvicen@yopmail.com' ORDER BY "users"."id" ASC LIMIT 1
+Completed 401 Unauthorized in 97ms
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cX3R1qM6u+OqqNGNaFOsnCjRPDakiX8MIjeKF1keaxQ=", "user"=>{"email"=>"andresvicen@yopmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  Rendered devise/shared/_links.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 68ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2014-03-06 17:27:58 -0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cX3R1qM6u+OqqNGNaFOsnCjRPDakiX8MIjeKF1keaxQ=", "user"=>{"email"=>"andresvicen@yopmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'andresvicen@yopmail.com' ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (21.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 1[0m  [["last_sign_in_at", Fri, 28 Feb 2014 19:33:20 UTC +00:00], ["current_sign_in_at", Thu, 06 Mar 2014 20:27:58 UTC +00:00], ["sign_in_count", 10], ["updated_at", Thu, 06 Mar 2014 20:27:58 UTC +00:00]]
+  [1m[35m (111.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 213ms (ActiveRecord: 133.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-06 17:27:59 -0300
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1[0m
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2014-03-06 17:28:00 -0300
+Processing by PostsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts"[0m
+  Rendered posts/_post_list.html.erb (11.7ms)
+  Rendered posts/index.html.erb within layouts/application (33.7ms)
+Completed 200 OK in 81ms (Views: 53.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2014-03-06 17:28:02 -0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.4ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? ORDER BY "posts"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered comments/_comment.html.erb (5.5ms)
+  Rendered comments/_form.html.erb (29.2ms)
+  Rendered posts/show.html.erb within layouts/application (112.8ms)
+Completed 200 OK in 24839ms (Views: 136.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/posts/4/edit" for 127.0.0.1 at 2014-03-06 17:28:31 -0300
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered posts/_form.html.erb (5.9ms)
+  Rendered posts/edit.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 120582ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/posts/4/" for 127.0.0.1 at 2014-03-06 17:30:32 -0300
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 4]]
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? ORDER BY "posts"."id" ASC LIMIT 1[0m  [["id", 4]]
+  Rendered comments/_comment.html.erb (4.6ms)
+  Rendered comments/_form.html.erb (4.7ms)
+  Rendered posts/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 3085ms (Views: 24.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/posts/4/edit" for 127.0.0.1 at 2014-03-06 17:30:39 -0300
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "4"]]
+  Rendered posts/_form.html.erb (3.3ms)
+  Rendered posts/edit.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 5639ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
